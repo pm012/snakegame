@@ -7,4 +7,4 @@ from snake_game import SnakeGame
 if __name__ == "__main__":
     pygame.init()
     game = SnakeGame(pygame)
-    game.run
+    game.run()

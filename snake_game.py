@@ -5,9 +5,9 @@ from food import Food
 class SnakeGame:
     def __init__(self, pygame):
         self.pygame = pygame
-        self.display = self.pygame.display.set_mode((Dimension.DISPLAY_WIDTH, Dimension.DISPLAY_HEIGHT)) 
+        self.display = self.pygame.display.set_mode((Dimension.DISPLAY_WIDTH.value, Dimension.DISPLAY_HEIGHT.value)) 
         pygame.display.set_caption("Snake Game")
-        self.clock = self.pygame.time.clock()
+        self.clock = self.pygame.time.Clock()
         self.snake = Snake(self.pygame)
         self.food  = Food(self.pygame)
         self.running = True
@@ -17,14 +17,14 @@ class SnakeGame:
             if event.type == self.pygame.QUIT:
                 self.running = False
             if event.type == self.pygame.KEYDOWN:
-                if event.key == self.pygame.K_LEFT and self.snake.direction != (Dimension.BLOCK_SIZE, 0):
-                    self.snake.direction = (-Dimension.BLOCK_SIZE, 0)
-                elif event.key == self.pygame.K_RIGHT and self.snake.direction != (-Dimension.BLOCK_SIZE, 0):
-                    self.snake.direction = (Dimension.BLOCK_SIZE, 0)
-                elif event.key == self.pygame.K_UP and self.snake.direction != (0, Dimension.BLOCK_SIZE):
+                if event.key == self.pygame.K_LEFT and self.snake.direction != (Dimension.BLOCK_SIZE.value, 0):
+                    self.snake.direction = (-Dimension.BLOCK_SIZE.value, 0)
+                elif event.key == self.pygame.K_RIGHT and self.snake.direction != (-Dimension.BLOCK_SIZE.value, 0):
+                    self.snake.direction = (Dimension.BLOCK_SIZE.value, 0)
+                elif event.key == self.pygame.K_UP and self.snake.direction != (0, Dimension.BLOCK_SIZE.value):
                     self.snake.direction = (0, -Dimension.BLOCK_SIZE)
-                elif event.key == self.pygame.K_DOWN and self.snake.direction != (0, -Dimension.BLOCK_SIZE):
-                    self.snake.direction = (0, Dimension.BLOCK_SIZE)
+                elif event.key == self.pygame.K_DOWN and self.snake.direction != (0, -Dimension.BLOCK_SIZE.value):
+                    self.snake.direction = (0, Dimension.BLOCK_SIZE.value)
 
     def update(self):
         self.snake.move()
@@ -39,7 +39,7 @@ class SnakeGame:
             self.running = False
 
     def draw(self):
-        self.display.fill(Color.Blue)
+        self.display.fill(Color.BLUE.value)
         self.snake.draw(self.display)
         self.food.draw(self.display)
         self.pygame.display.update()
