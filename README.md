@@ -1,5 +1,5 @@
 # snakegame
 Snake game in python
 
-task:
+task: create a Snake game in Python using OOP
 
