@@ -2,7 +2,7 @@ from constants import Dimension, Color
 class Snake:
     def __init__(self, pygame):
         self.body = [[Dimension.DISPLAY_WIDTH.value//2, Dimension.DISPLAY_HEIGHT.value//2]]
-        self.direction = (0, 0)
+        self.direction = (0, 0)  #(Dimension.BLOCK_SIZE.value, 0) - to set up direction on startup
         self.length = 1
         self.pygame = pygame
 
@@ -21,7 +21,7 @@ class Snake:
 
     def check_collision(self):
         head = self.body[-1]
-        if head in self.body[::-1]: #Collides itself
+        if head in self.body[:-1]: #Collides itself
             return True
         if (
             head[0] < 0 or head[0] >= Dimension.DISPLAY_WIDTH.value or

@@ -22,7 +22,7 @@ class SnakeGame:
                 elif event.key == self.pygame.K_RIGHT and self.snake.direction != (-Dimension.BLOCK_SIZE.value, 0):
                     self.snake.direction = (Dimension.BLOCK_SIZE.value, 0)
                 elif event.key == self.pygame.K_UP and self.snake.direction != (0, Dimension.BLOCK_SIZE.value):
-                    self.snake.direction = (0, -Dimension.BLOCK_SIZE)
+                    self.snake.direction = (0, -Dimension.BLOCK_SIZE.value)
                 elif event.key == self.pygame.K_DOWN and self.snake.direction != (0, -Dimension.BLOCK_SIZE.value):
                     self.snake.direction = (0, Dimension.BLOCK_SIZE.value)
 
